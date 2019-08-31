@@ -28,7 +28,12 @@ private:
     void ScanToken();
     char Advance();
     void AddToken( TokenType type );
-
+    bool Match( char expected );
+    char Peek();
+    void String();
+    bool IsDigit( char c );
+    void Number();
+    char PeekNext();
 };
 
 #endif // SCANNER_H
