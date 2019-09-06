@@ -83,7 +83,7 @@ void Lox::Run( const std::string &source )
     // For now, just print the tokens.
     for ( auto token : tokens )
     {
-        std::cout << token.GetString() << " ";
+        std::cout << token.GetString() << "\n";
     }
     std::cout << "\n";
 }

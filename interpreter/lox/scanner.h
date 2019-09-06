@@ -27,7 +27,8 @@ private:
     bool IsAtEnd();
     void ScanToken();
     char Advance();
-    void AddToken( TokenType type );
+	void AddToken( TokenType type );
+    void AddToken( TokenType type, const Object &literal );
     bool Match( char expected );
     char Peek();
     void String();

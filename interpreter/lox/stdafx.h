@@ -11,5 +11,6 @@
 #include <cstdio>
 #include <fstream>
 #include <sstream>
+#include <variant>
 
 // TODO: reference additional headers your program requires here
