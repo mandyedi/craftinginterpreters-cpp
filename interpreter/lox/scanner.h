@@ -24,6 +24,8 @@ private:
     unsigned int     Current    /*= 0*/;
     int              Line       /*= 1*/;
 
+	static const std::map<std::string, TokenType> Keywords;
+
     bool IsAtEnd();
     void ScanToken();
     char Advance();
@@ -35,6 +37,9 @@ private:
     bool IsDigit( char c );
     void Number();
     char PeekNext();
+	bool IsAlpha( char c );
+	bool IsAlphaNumeric( char c );
+	void Identifier();
 };
 
 #endif // SCANNER_H

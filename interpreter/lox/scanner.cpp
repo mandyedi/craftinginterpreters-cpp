@@ -2,6 +2,26 @@
 #include "lox.h"
 #include "scanner.h"
 
+const std::map<std::string, TokenType> Scanner::Keywords =
+{
+	{ "and",    TokenType::AND },
+	{ "class",  TokenType::CLASS },
+	{ "else",   TokenType::ELSE },
+	{ "false",  TokenType::FALSE },
+	{ "for",    TokenType::FOR },
+	{ "fun",    TokenType::FUN },
+	{ "if",     TokenType::IF },
+	{ "nil",    TokenType::NIL },
+	{ "or",     TokenType::OR },
+	{ "print",  TokenType::PRINT },
+	{ "return", TokenType::RETURN },
+	{ "super",  TokenType::SUPER },
+	{ "this",   TokenType::THIS },
+	{ "true",   TokenType::TRUE },
+	{ "var",    TokenType::VAR },
+	{ "while",  TokenType::WHILE }
+};
+
 Scanner::Scanner( const std::string& source )
 	: Source( source ) // todo: is it ok? reserach modern c++ solutions
 	, Start( 0 )
@@ -81,6 +101,10 @@ void Scanner::ScanToken()
 		{
 			Number();
 		}
+		else if ( IsAlpha( c ) )
+		{
+			Identifier();
+		}
 		else
 		{
 			Lox::Error( Line, "Unexpected character." );
@@ -102,9 +126,9 @@ void Scanner::AddToken( TokenType type )
 
 void Scanner::AddToken( TokenType type, const Object& literal )
 {
-	unsigned int length = Current - Start + 1;
-	std::string text = Source.substr( Start, length );
-	Token token( type, text, literal, Line );
+	unsigned int length = Current - Start;
+	std::string lexeme = Source.substr( Start, length );
+	Token token( type, lexeme, literal, Line );
 	Tokens.push_back( std::move( token ) );
 }
 
@@ -185,7 +209,9 @@ void Scanner::Number()
 		}
 	}
 
-	AddToken( TokenType::NUMBER, std::stod( Source.substr( Start, Current - Start + 1 ) ) );
+	std::string s = Source.substr( Start, Current - Start );
+	double number = std::stod( s );
+	AddToken( TokenType::NUMBER, number );
 }
 
 char Scanner::PeekNext()
@@ -195,4 +221,34 @@ char Scanner::PeekNext()
 		return '\0';
 	}
 	return Source[Current + 1];
+}
+
+bool Scanner::IsAlpha( char c )
+{
+	return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || c == '_';
+}
+
+bool Scanner::IsAlphaNumeric( char c )
+{
+	return IsAlpha( c ) || IsDigit( c );
+}
+
+void Scanner::Identifier()
+{
+	while ( IsAlphaNumeric( Peek() ) )
+	{
+		Advance();
+	}
+
+	unsigned int length = Current - Start;
+	std::string s = Source.substr( Start, length );
+	auto keyword = Keywords.find( s );
+	if ( keyword == Keywords.end() )
+	{
+		AddToken( TokenType::IDENTIFIER );
+	}
+	else
+	{
+		AddToken( keyword->second );
+	}
 }
