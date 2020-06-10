@@ -44,7 +44,6 @@ std::string Lox::GetInput()
 
         if ( c == EOF || c == '\n' )
         {
-            // todo: append "\n" ?
             run = false;
         }
         else
@@ -78,7 +77,7 @@ void Lox::RunFile( const std::string &fileName )
 void Lox::Run( std::string &source )
 {
     Scanner scanner = Scanner( std::move( source ) );
-    std::list<Token> tokens = scanner.ScanTokens();
+    const std::list<Token> &tokens = scanner.ScanTokens();
 
     // For now, just print the tokens.
     for ( auto token : tokens )

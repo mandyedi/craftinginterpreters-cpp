@@ -32,7 +32,7 @@ Scanner::Scanner( std::string &&source )
 Scanner::~Scanner()
 {}
 
-std::list<Token> Scanner::ScanTokens()
+const std::list<Token>& Scanner::ScanTokens()
 {
 	while ( IsAtEnd() == false )
 	{
@@ -40,9 +40,6 @@ std::list<Token> Scanner::ScanTokens()
 		ScanToken();
 	}
 
-	// todo: std::move https://en.cppreference.com/w/cpp/container/list/push_back
-	//       reserach std::move
-	//       Scannner should be handle only a pointer to the soruce string and Lox manage the source string lifecycle.
 	Token token( TokenType::EOFILE, "", Null{}, Line );
 	Tokens.push_back( std::move( token ) );
 

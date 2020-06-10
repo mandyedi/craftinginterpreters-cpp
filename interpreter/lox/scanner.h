@@ -11,18 +11,16 @@ public:
     Scanner( std::string &&source );
     ~Scanner();
 
-    // todo: it does not seem good to return like this
-    //       return is going to copy the list
-    std::list<Token> ScanTokens();
+    // todo: consider using unique ptr for tokens vector
+    const std::list<Token>& ScanTokens();
 
 private:
 
-    // todo: init memeber vars here, which c++ version supports it?
     std::string      Source;
     std::list<Token> Tokens;
-    int              Start      /*= 0*/;
-    unsigned int     Current    /*= 0*/;
-    int              Line       /*= 1*/;
+    int              Start;
+    unsigned int     Current;
+    int              Line;
 
 	static const std::map<std::string, TokenType> Keywords;
 

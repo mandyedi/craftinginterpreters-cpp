@@ -68,7 +68,6 @@ public:
 		return *this;
 	}
 
-	// todo: should I use std::move instead of const refs?
 	Token( TokenType type, const std::string& lexeme, const Object& literal, int line )
 		: Type( type )
 		, Lexeme( lexeme )
