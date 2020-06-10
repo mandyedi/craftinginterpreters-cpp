@@ -22,8 +22,8 @@ const std::map<std::string, TokenType> Scanner::Keywords =
 	{ "while",  TokenType::WHILE }
 };
 
-Scanner::Scanner( const std::string& source )
-	: Source( source ) // todo: is it ok? reserach modern c++ solutions
+Scanner::Scanner( std::string &&source )
+	: Source( std::move( source ) )
 	, Start( 0 )
 	, Current( 0 )
 	, Line( 0 )

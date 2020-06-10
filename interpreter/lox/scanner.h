@@ -8,7 +8,7 @@ class Scanner
 
 public:
 
-    Scanner( const std::string &source );
+    Scanner( std::string &&source );
     ~Scanner();
 
     // todo: it does not seem good to return like this

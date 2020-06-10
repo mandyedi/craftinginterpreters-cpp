@@ -23,7 +23,7 @@ private:
 
     std::string GetInput();
 
-    void Run( const std::string &source );
+    void Run( std::string &source );
 
     static void Report( int line, const std::string &where, const std::string &message );
 

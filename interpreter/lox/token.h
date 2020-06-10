@@ -29,6 +29,45 @@ class Token
 
 public:
 
+	Token( const Token &other )
+	{
+		Type    = other.Type;
+		Lexeme  = other.Lexeme;
+		Literal = other.Literal;
+		Line    = other.Line;
+	}
+
+	Token( Token&& other ) noexcept
+		: Type(std::move(other.Type))
+		, Lexeme(std::move(other.Lexeme))
+		, Literal(std::move(other.Literal))
+		, Line(std::exchange(other.Line, 0))
+	{}
+
+	Token& operator= ( const Token &other )
+	{
+		if (this != &other)
+		{
+			Type = other.Type;
+			Lexeme = other.Lexeme;
+			Literal = other.Literal;
+			Line = other.Line;
+		}
+		return *this;
+	}
+
+	Token& operator=( Token &&other ) noexcept
+	{
+		if (this != &other)
+		{
+			Type = std::move(other.Type);
+			Lexeme = std::move(other.Lexeme);
+			Literal = std::move(other.Literal);
+			Line = std::exchange(other.Line, 0);
+		}
+		return *this;
+	}
+
 	// todo: should I use std::move instead of const refs?
 	Token( TokenType type, const std::string& lexeme, const Object& literal, int line )
 		: Type( type )

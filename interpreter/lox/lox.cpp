@@ -75,9 +75,9 @@ void Lox::RunFile( const std::string &fileName )
     }
 }
 
-void Lox::Run( const std::string &source )
+void Lox::Run( std::string &source )
 {
-    Scanner scanner = Scanner( source );
+    Scanner scanner = Scanner( std::move( source ) );
     std::list<Token> tokens = scanner.ScanTokens();
 
     // For now, just print the tokens.
