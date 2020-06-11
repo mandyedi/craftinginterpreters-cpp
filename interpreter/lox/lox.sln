@@ -3,30 +3,37 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30128.74
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lox", "lox.vcxproj", "{704FAA6B-D6C2-452A-91CC-92439BFA03C4}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lox", "lox\lox.vcxproj", "{704FAA6B-D6C2-452A-91CC-92439BFA03C4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{640DD9EF-CFA1-4668-B6AB-CC620593E3AE} = {640DD9EF-CFA1-4668-B6AB-CC620593E3AE}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "generateAST", "generateAST\generateAST.vcxproj", "{640DD9EF-CFA1-4668-B6AB-CC620593E3AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug_input|x64 = Debug_input|x64
-		Debug_input|x86 = Debug_input|x86
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{704FAA6B-D6C2-452A-91CC-92439BFA03C4}.Debug_input|x64.ActiveCfg = Debug_input|x64
-		{704FAA6B-D6C2-452A-91CC-92439BFA03C4}.Debug_input|x64.Build.0 = Debug_input|x64
-		{704FAA6B-D6C2-452A-91CC-92439BFA03C4}.Debug_input|x86.ActiveCfg = Debug_input|Win32
-		{704FAA6B-D6C2-452A-91CC-92439BFA03C4}.Debug_input|x86.Build.0 = Debug_input|Win32
-		{704FAA6B-D6C2-452A-91CC-92439BFA03C4}.Debug|x64.ActiveCfg = Debug|x64
-		{704FAA6B-D6C2-452A-91CC-92439BFA03C4}.Debug|x64.Build.0 = Debug|x64
-		{704FAA6B-D6C2-452A-91CC-92439BFA03C4}.Debug|x86.ActiveCfg = Debug|Win32
-		{704FAA6B-D6C2-452A-91CC-92439BFA03C4}.Debug|x86.Build.0 = Debug|Win32
+		{704FAA6B-D6C2-452A-91CC-92439BFA03C4}.Debug|x64.ActiveCfg = Debug_lox_input|x64
+		{704FAA6B-D6C2-452A-91CC-92439BFA03C4}.Debug|x64.Build.0 = Debug_lox_input|x64
+		{704FAA6B-D6C2-452A-91CC-92439BFA03C4}.Debug|x86.ActiveCfg = Debug_lox_input|Win32
+		{704FAA6B-D6C2-452A-91CC-92439BFA03C4}.Debug|x86.Build.0 = Debug_lox_input|Win32
 		{704FAA6B-D6C2-452A-91CC-92439BFA03C4}.Release|x64.ActiveCfg = Release|x64
 		{704FAA6B-D6C2-452A-91CC-92439BFA03C4}.Release|x64.Build.0 = Release|x64
 		{704FAA6B-D6C2-452A-91CC-92439BFA03C4}.Release|x86.ActiveCfg = Release|Win32
 		{704FAA6B-D6C2-452A-91CC-92439BFA03C4}.Release|x86.Build.0 = Release|Win32
+		{640DD9EF-CFA1-4668-B6AB-CC620593E3AE}.Debug|x64.ActiveCfg = Debug_generateAST|x64
+		{640DD9EF-CFA1-4668-B6AB-CC620593E3AE}.Debug|x64.Build.0 = Debug_generateAST|x64
+		{640DD9EF-CFA1-4668-B6AB-CC620593E3AE}.Debug|x86.ActiveCfg = Debug_generateAST|Win32
+		{640DD9EF-CFA1-4668-B6AB-CC620593E3AE}.Debug|x86.Build.0 = Debug_generateAST|Win32
+		{640DD9EF-CFA1-4668-B6AB-CC620593E3AE}.Release|x64.ActiveCfg = Release|x64
+		{640DD9EF-CFA1-4668-B6AB-CC620593E3AE}.Release|x64.Build.0 = Release|x64
+		{640DD9EF-CFA1-4668-B6AB-CC620593E3AE}.Release|x86.ActiveCfg = Release|Win32
+		{640DD9EF-CFA1-4668-B6AB-CC620593E3AE}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
