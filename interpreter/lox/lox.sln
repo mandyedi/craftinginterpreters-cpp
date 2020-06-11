@@ -7,18 +7,18 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lox", "lox.vcxproj", "{704F
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug test.lox|x64 = Debug test.lox|x64
-		Debug test.lox|x86 = Debug test.lox|x86
+		Debug_input|x64 = Debug_input|x64
+		Debug_input|x86 = Debug_input|x86
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{704FAA6B-D6C2-452A-91CC-92439BFA03C4}.Debug test.lox|x64.ActiveCfg = Debug_input|x64
-		{704FAA6B-D6C2-452A-91CC-92439BFA03C4}.Debug test.lox|x64.Build.0 = Debug_input|x64
-		{704FAA6B-D6C2-452A-91CC-92439BFA03C4}.Debug test.lox|x86.ActiveCfg = Debug_input|Win32
-		{704FAA6B-D6C2-452A-91CC-92439BFA03C4}.Debug test.lox|x86.Build.0 = Debug_input|Win32
+		{704FAA6B-D6C2-452A-91CC-92439BFA03C4}.Debug_input|x64.ActiveCfg = Debug_input|x64
+		{704FAA6B-D6C2-452A-91CC-92439BFA03C4}.Debug_input|x64.Build.0 = Debug_input|x64
+		{704FAA6B-D6C2-452A-91CC-92439BFA03C4}.Debug_input|x86.ActiveCfg = Debug_input|Win32
+		{704FAA6B-D6C2-452A-91CC-92439BFA03C4}.Debug_input|x86.Build.0 = Debug_input|Win32
 		{704FAA6B-D6C2-452A-91CC-92439BFA03C4}.Debug|x64.ActiveCfg = Debug|x64
 		{704FAA6B-D6C2-452A-91CC-92439BFA03C4}.Debug|x64.Build.0 = Debug|x64
 		{704FAA6B-D6C2-452A-91CC-92439BFA03C4}.Debug|x86.ActiveCfg = Debug|Win32

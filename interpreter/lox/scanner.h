@@ -22,7 +22,7 @@ private:
     unsigned int     Current;
     int              Line;
 
-	static const std::map<std::string, TokenType> Keywords;
+	static const std::unordered_map<std::string, TokenType> Keywords;
 
     bool IsAtEnd();
     void ScanToken();
