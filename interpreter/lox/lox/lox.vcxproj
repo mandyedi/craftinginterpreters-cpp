@@ -209,6 +209,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ASTPrinter.h" />
     <ClInclude Include="Expr.h" />
     <ClInclude Include="lox.h" />
     <ClInclude Include="scanner.h" />
@@ -217,6 +218,7 @@
     <ClInclude Include="token_type.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ASTPrinter.cpp" />
     <ClCompile Include="lox.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="scanner.cpp" />
