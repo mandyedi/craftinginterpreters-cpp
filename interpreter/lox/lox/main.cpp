@@ -25,6 +25,8 @@ int main( int argc, char **argv )
     //ASTPrinter printer;
     //printer.Print( unary );
 
+    //delete unary;
+
     //return 0;
     // Test ASR ends
 

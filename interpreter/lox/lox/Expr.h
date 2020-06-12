@@ -32,7 +32,13 @@ public:
     : Left(left)
     , Op(op)
     , Right(right)
-{}
+    {}
+
+    ~Binary()
+    {
+        delete Left;
+        delete Right;
+    }
 
     void Accept( Visitor *visitor ) override
     {
@@ -49,7 +55,12 @@ class Grouping : public Expr
 public:
     Grouping( Expr *expression )
     : Expression(expression)
-{}
+    {}
+
+    ~Grouping()
+    {
+        delete Expression;
+    }
 
     void Accept( Visitor *visitor ) override
     {
@@ -64,7 +75,11 @@ class Literal : public Expr
 public:
     Literal( Object value )
     : Value(value)
-{}
+    {}
+
+    ~Literal()
+    {
+    }
 
     void Accept( Visitor *visitor ) override
     {
@@ -80,7 +95,12 @@ public:
     Unary( Token op, Expr *right )
     : Op(op)
     , Right(right)
-{}
+    {}
+
+    ~Unary()
+    {
+        delete Right;
+    }
 
     void Accept( Visitor *visitor ) override
     {

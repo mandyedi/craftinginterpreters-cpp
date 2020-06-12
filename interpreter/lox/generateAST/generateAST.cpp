@@ -86,7 +86,23 @@ void defineType( std::ofstream &outputStream, const std::string &baseName, const
 		std::string nameCap = capitalize( name );
 		outputStream << "    " << (i == 0 ? ": " : ", ") << nameCap << "(" << name << ")\n";
 	}
-	outputStream << "{}\n\n";
+	outputStream << "    {}\n\n";
+
+	// Destructor
+	outputStream << "    ~" << className << "()\n    {\n";
+	//outputStream << "        std::cout << \"delete " << className << "\\n\";\n";
+	for ( auto &field : fields )
+	{
+		field = trim( field );
+		std::vector<std::string> tokens;
+		split( field, ' ', tokens );
+
+		if ( tokens[1][0] == '*' )
+		{
+			outputStream << "        " << "delete " << capitalize( tokens[1] ).substr( 1, tokens[1].size() - 1 ) << ";\n";
+		}
+	}
+	outputStream << "    }\n\n";
 
 	// Visitor pattern
 
