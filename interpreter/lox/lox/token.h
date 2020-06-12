@@ -91,8 +91,6 @@ public:
 		return literalString;
 	}
 
-private:
-
 	TokenType	Type;
 	std::string Lexeme;
 	Object		Literal;
