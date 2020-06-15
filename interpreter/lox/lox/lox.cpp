@@ -89,12 +89,24 @@ void Lox::Run( std::string &source )
     std::cout << "\n";
 }
 
-void Lox::Error( int line, const std::string &message )
+/*static*/ void Lox::Error( unsigned int line, const std::string &message )
 {
     Report( line, "", message );
 }
 
-void Lox::Report( int line, const std::string &where, const std::string &message )
+/*static*/ void Lox::Error( Token token, const std::string &message )
+{
+    if ( token.Type == TokenType::EOFILE )
+    {
+        Report( token.Line, " at end", message );
+    }
+    else
+    {
+        Report( token.Line, " at '" + token.Lexeme + "'", message );
+    }
+}
+
+/*static*/ void Lox::Report( int line, const std::string &where, const std::string &message )
 {
 
     std::cout << "[line " << line << "] Error" << where << ": " << message << "\n";

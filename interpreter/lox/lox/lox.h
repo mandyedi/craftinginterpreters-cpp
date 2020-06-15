@@ -1,7 +1,7 @@
 #ifndef LOX_H
 #define LOX_H
 
-#include <string>
+#include "token.h"
 
 class Lox
 {
@@ -15,7 +15,9 @@ public:
 
     void RunFile( const std::string &fileName );
 
-    static void Error( int line, const std::string &message );
+    static void Error( unsigned int line, const std::string &message );
+
+    static void Error( Token token, const std::string &message );
 
 private:
 

@@ -1,7 +1,9 @@
 #ifndef PARSER_H
 #define PARSER_H
 
+#include <string>
 #include "token.h"
+#include "ParseError.h"
 
 class Expr;
 
@@ -22,6 +24,8 @@ private:
 	Expr *Primary();
 
 	Token Consume( TokenType type, std::string message );
+	ParseError Error( Token token, const std::string &message );
+	void Synchronize();
 
 	bool Match( const std::vector<TokenType> types );
 	bool Check( TokenType type );

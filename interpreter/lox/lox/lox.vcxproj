@@ -212,6 +212,7 @@
     <ClInclude Include="ASTPrinter.h" />
     <ClInclude Include="Expr.h" />
     <ClInclude Include="lox.h" />
+    <ClInclude Include="ParseError.h" />
     <ClInclude Include="Parser.h" />
     <ClInclude Include="scanner.h" />
     <ClInclude Include="stdafx.h" />

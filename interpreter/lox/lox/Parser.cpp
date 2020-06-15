@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Parser.h"
 #include "Expr.h"
+#include "lox.h"
 
 Parser::Parser( std::vector<Token> *tokens )
 	: Tokens( tokens )
@@ -115,8 +116,45 @@ Expr *Parser::Primary()
 
 Token Parser::Consume( TokenType type, std::string message )
 {
-	// todo
-	return Token( TokenType::EOFILE, "", 0.0, 0 );
+	if ( Check( type ) )
+	{
+		return Advance();
+	}
+
+	throw Error( Peek(), message );
+}
+
+ParseError Parser::Error( Token token, const std::string &message )
+{
+	Lox::Error( token, message );
+	return ParseError{};
+}
+
+void Parser::Synchronize()
+{
+	Advance();
+	while ( IsAtEnd() == false )
+	{
+		if ( Previous().Type == TokenType::SEMICOLON )
+		{
+			return;
+		}
+
+		switch ( Peek().Type )
+		{
+			case TokenType::CLASS:
+			case TokenType::FUN:
+			case TokenType::VAR:
+			case TokenType::FOR:
+			case TokenType::IF:
+			case TokenType::WHILE:
+			case TokenType::PRINT:
+			case TokenType::RETURN:
+				return;
+		}
+
+		Advance();
+	}
 }
 
 bool Parser::Match( const std::vector<TokenType> types )

@@ -68,6 +68,13 @@ public:
 		return *this;
 	}
 
+	Token()
+		: Type( TokenType::EOFILE )
+		, Lexeme( "" )
+		, Literal( 0.0 )
+		, Line( 0 )
+	{}
+
 	Token( TokenType type, const std::string& lexeme, const Object& literal, int line )
 		: Type( type )
 		, Lexeme( lexeme )
