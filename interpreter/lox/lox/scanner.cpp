@@ -22,7 +22,7 @@ const std::unordered_map<std::string, TokenType> Scanner::Keywords =
 	{ "while",  TokenType::WHILE }
 };
 
-Scanner::Scanner( std::string &&source, std::list<Token> *tokens )
+Scanner::Scanner( std::string &&source, std::vector<Token> *tokens )
 	: Source( std::move( source ) )
 	, Tokens( tokens )
 	, Start( 0 )

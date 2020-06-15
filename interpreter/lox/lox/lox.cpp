@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "lox.h"
 #include "scanner.h"
+#include "Parser.h"
 
 bool Lox::HadError = false;
 
@@ -76,17 +77,18 @@ void Lox::RunFile( const std::string &fileName )
 
 void Lox::Run( std::string &source )
 {
-    std::list<Token> tokens;
+    std::vector<Token> tokens;
 
     Scanner scanner = Scanner( std::move( source ), &tokens );
     scanner.ScanTokens();
 
-    // For now, just print the tokens.
-    for ( auto token : tokens )
+    Parser parser( &tokens );
+    Expr *expr = parser.Parse();
+    
+    if ( HadError == true )
     {
-        std::cout << token.GetString() << "\n";
+        return;
     }
-    std::cout << "\n";
 }
 
 /*static*/ void Lox::Error( unsigned int line, const std::string &message )

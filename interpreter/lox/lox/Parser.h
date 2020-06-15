@@ -13,6 +13,8 @@ public:
 	Parser( std::vector<Token> *tokens );
 	~Parser();
 
+	Expr *Parse();
+
 private:
 
 	Expr *Expression();

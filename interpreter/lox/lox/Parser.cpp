@@ -10,6 +10,18 @@ Parser::Parser( std::vector<Token> *tokens )
 
 Parser::~Parser() {}
 
+Expr *Parser::Parse()
+{
+	try
+	{
+		return Expression();
+	}
+	catch ( const ParseError &e )
+	{
+		return nullptr;
+	}
+}
+
 Expr *Parser::Expression()
 {
 	return Equality();
@@ -108,10 +120,10 @@ Expr *Parser::Primary()
 	{
 		Expr *expr = Expression();
 		Consume( TokenType::RIGHT_PAREN, "Expect ')' after expression." );
-		return new Literal( false );
+		return new Grouping( expr );
 	}
 
-	return nullptr;
+	throw Error( Peek(), "Expect expression." );
 }
 
 Token Parser::Consume( TokenType type, std::string message )

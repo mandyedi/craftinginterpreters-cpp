@@ -20,8 +20,8 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{704FAA6B-D6C2-452A-91CC-92439BFA03C4}.Debug|x64.ActiveCfg = Debug_lox_input|x64
 		{704FAA6B-D6C2-452A-91CC-92439BFA03C4}.Debug|x64.Build.0 = Debug_lox_input|x64
-		{704FAA6B-D6C2-452A-91CC-92439BFA03C4}.Debug|x86.ActiveCfg = Debug_lox_input|Win32
-		{704FAA6B-D6C2-452A-91CC-92439BFA03C4}.Debug|x86.Build.0 = Debug_lox_input|Win32
+		{704FAA6B-D6C2-452A-91CC-92439BFA03C4}.Debug|x86.ActiveCfg = Debug_lox|Win32
+		{704FAA6B-D6C2-452A-91CC-92439BFA03C4}.Debug|x86.Build.0 = Debug_lox|Win32
 		{704FAA6B-D6C2-452A-91CC-92439BFA03C4}.Release|x64.ActiveCfg = Release|x64
 		{704FAA6B-D6C2-452A-91CC-92439BFA03C4}.Release|x64.Build.0 = Release|x64
 		{704FAA6B-D6C2-452A-91CC-92439BFA03C4}.Release|x86.ActiveCfg = Release|Win32

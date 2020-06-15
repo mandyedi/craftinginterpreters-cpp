@@ -51,6 +51,7 @@ mono_crash.*
 
 # Build results
 [Dd]ebug/
+[Dd]ebug_lox/
 [Dd]ebug_lox_input/
 [Dd]ebug_generateAST/
 [Dd]ebugPublic/
