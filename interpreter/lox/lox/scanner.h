@@ -8,16 +8,16 @@ class Scanner
 
 public:
 
-    Scanner( std::string &&source );
+    Scanner( std::string &&source, std::list<Token> *tokens );
     ~Scanner();
 
     // todo: consider using unique ptr for tokens vector
-    const std::list<Token>& ScanTokens();
+    void ScanTokens();
 
 private:
 
     std::string      Source;
-    std::list<Token> Tokens;
+    std::list<Token> *Tokens;
     int              Start;
     unsigned int     Current;
     int              Line;

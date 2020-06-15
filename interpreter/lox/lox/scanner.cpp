@@ -22,8 +22,9 @@ const std::unordered_map<std::string, TokenType> Scanner::Keywords =
 	{ "while",  TokenType::WHILE }
 };
 
-Scanner::Scanner( std::string &&source )
+Scanner::Scanner( std::string &&source, std::list<Token> *tokens )
 	: Source( std::move( source ) )
+	, Tokens( tokens )
 	, Start( 0 )
 	, Current( 0 )
 	, Line( 0 )
@@ -32,7 +33,7 @@ Scanner::Scanner( std::string &&source )
 Scanner::~Scanner()
 {}
 
-const std::list<Token>& Scanner::ScanTokens()
+void Scanner::ScanTokens()
 {
 	while ( IsAtEnd() == false )
 	{
@@ -41,9 +42,7 @@ const std::list<Token>& Scanner::ScanTokens()
 	}
 
 	Token token( TokenType::EOFILE, "", Null{}, Line );
-	Tokens.push_back( std::move( token ) );
-
-	return Tokens;
+	Tokens->push_back( std::move( token ) );
 }
 
 bool Scanner::IsAtEnd()
@@ -126,7 +125,7 @@ void Scanner::AddToken( TokenType type, const Object& literal )
 	unsigned int length = Current - Start;
 	std::string lexeme = Source.substr( Start, length );
 	Token token( type, lexeme, literal, Line );
-	Tokens.push_back( std::move( token ) );
+	Tokens->push_back( std::move( token ) );
 }
 
 bool Scanner::Match( char expected )

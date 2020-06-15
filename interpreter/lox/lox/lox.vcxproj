@@ -212,6 +212,7 @@
     <ClInclude Include="ASTPrinter.h" />
     <ClInclude Include="Expr.h" />
     <ClInclude Include="lox.h" />
+    <ClInclude Include="Parser.h" />
     <ClInclude Include="scanner.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="token.h" />
@@ -221,6 +222,7 @@
     <ClCompile Include="ASTPrinter.cpp" />
     <ClCompile Include="lox.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Parser.cpp" />
     <ClCompile Include="scanner.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug_lox|Win32'">Create</PrecompiledHeader>
